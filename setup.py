@@ -16,6 +16,6 @@ setup(
 	'geopandas==0.9.0',
 	'rasterio==1.2.8',
 	'torchvision==0.5.0',
-	'pytorch==1.4.0'
+	'pytorch'
 	]
 )
