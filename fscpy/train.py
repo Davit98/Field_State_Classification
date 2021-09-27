@@ -11,8 +11,8 @@ from torch.utils.data import DataLoader
 
 from torch import max, flatten
 
-from custom_dataset import CustomDataset
-from models import MyResNet
+from .custom_dataset import CustomDataset
+from .models import MyResNet
 
 
 MODEL_SAVE_PATH = 'final_model.pt'
