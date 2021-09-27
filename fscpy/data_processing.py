@@ -167,8 +167,3 @@ def write_blocks_to_disk(window_size=512,stride=256,p=0.2):
     df_train.to_csv(os.path.join(PROCESSED_DATA_PATH, 'train.csv'), encoding='utf-8', index=False)
     df_test.to_csv(os.path.join(PROCESSED_DATA_PATH, 'test.csv'), encoding='utf-8', index=False)
 
-
-
-
-
-
