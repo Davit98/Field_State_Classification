@@ -10,6 +10,12 @@ setup(
 	license='BSD 2-clause',
 	packages=['fscpy'],
 	install_requires=[
-	'numpy==1.20.1'
+	'numpy==1.20.1',
+	'pandas==1.2.4',
+	'tqdm==4.59.0',
+	'geopandas==0.9.0',
+	'rasterio==1.2.8',
+	'torchvision==0.5.0',
+	'torch==1.4.0'
 	]
 )
