@@ -142,11 +142,3 @@ def train(epochs,batch_size=32,print_every=1):
 	torch.save(best_model.state_dict(),MODEL_SAVE_PATH)
 
 
-
-
-
-
-
-
-
-
