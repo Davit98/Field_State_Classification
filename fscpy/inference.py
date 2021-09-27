@@ -7,7 +7,7 @@ import torch.nn.functional as F
 
 from torch import max, flatten
 
-from models import MyResNet
+from .models import MyResNet
 
 PROCESSED_DATA_PATH = 'processed_data/'
 
