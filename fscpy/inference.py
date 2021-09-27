@@ -20,7 +20,7 @@ label_encoding_reverse = {
 	5 : 'Drydown'
 }
 
-def test(TRAINED_MODEL,SAMPLE_IMG_NAME):
+def predict(TRAINED_MODEL,SAMPLE_IMG_NAME):
 	'''
 	Use already trained model to make prediction for a single sample.
 
