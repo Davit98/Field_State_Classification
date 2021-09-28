@@ -2,7 +2,7 @@ from torchvision import models
 
 
 class MyResNet(models.ResNet):
-    """
+	"""
 	ResNet-18 model for 6 classes.
 	"""
 

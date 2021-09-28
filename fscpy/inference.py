@@ -23,16 +23,16 @@ label_encoding_reverse = {
 
 def predict(TRAINED_MODEL, SAMPLE_IMG_NAME):
     """
-	Use already trained model to make prediction for a single sample.
+    Use already trained model to make prediction for a single sample.
 
-	Parameters
-	----------
-	TRAINED_MODEL : str
-		Path of .pt file for ResNet-18 model.
+    Parameters
+    ----------
+    TRAINED_MODEL : str
+        Path of .pt file for ResNet-18 model.
 
-	SAMPLE_IMG_NAME : str
-		Name of a test image (e.g. 3KR1212BR_48_test.npy).
-	"""
+    SAMPLE_IMG_NAME : str
+        Name of a test image (e.g. 3KR1212BR_48_test.npy).
+    """
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     net = MyResNet()
     net.to(device)

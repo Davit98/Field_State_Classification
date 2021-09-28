@@ -28,21 +28,21 @@ label_encoding = {
 
 def train(epochs, batch_size=32, print_every=1):
     """
-	Implements training of ResNet-18 model for the field state classification problem.
-	After training, the best model's weights are saved to the disk.
+    Implements training of ResNet-18 model for the field state classification problem.
+    After training, the best model's weights are saved to the disk.
 
-	Parameters
-	----------
-	epochs : int
-		Number of epochs to train the model.
+    Parameters
+    ----------
+    epochs : int
+        Number of epochs to train the model.
 
-	batch_size : int, optional
-		Batch size.
+    batch_size : int, optional
+        Batch size.
 
-	print_every : int, optional
-		An integer number indicating how often to print intermediate results (e.g. loss) during each epoch.
-		An argument equal to k means print the results after processing k batches.
-	"""
+    print_every : int, optional
+        An integer number indicating how often to print intermediate results (e.g. loss) during each epoch.
+        An argument equal to k means print the results after processing k batches.
+    """
     train_dataset = CustomDataset('train.csv', label_encoding)
 
     train_loader = DataLoader(
