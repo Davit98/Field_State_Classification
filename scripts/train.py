@@ -21,9 +21,7 @@ def parse_args():
 
 
 def main(args):
-    train(epochs=args.epochs,
-          batch_size=args.batch_size,
-          print_every=args.print_every)
+    train(epochs=args.epochs, batch_size=args.batch_size, print_every=args.print_every)
 
 
 if __name__ == '__main__':

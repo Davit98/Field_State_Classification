@@ -17,8 +17,7 @@ def parse_args():
 
 
 def main(args):
-    inference.predict(trained_model=args.trained_model,
-                      sample_img_name=args.sample_img_name)
+    print(inference.predict(trained_model=args.trained_model, sample_img_name=args.sample_img_name))
 
 
 if __name__ == '__main__':
