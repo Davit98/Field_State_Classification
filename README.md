@@ -15,7 +15,7 @@ from fscpy.train import train
 train(epochs=5,batch_size=16,print_every=1)
 ```
 
-Alternatively, you can just run from the terminal the script *train.py* residing in the *scripts/* folder:  
+Alternatively, you can just run from the command line the script *train.py* residing in the *scripts/* folder:  
 ```python3 scripts/train.py --epochs 5 --batch_size 16 --print_every 1```
 
 #### Testing
@@ -26,5 +26,5 @@ from fscpy import inference
 inference.predict('model.pt','1TJZT39WQ_0_test.npy')
 ```
 
-Alternatively, you can just run from the terminal the script *test.py* residing in the *scripts/* folder:  
+Alternatively, you can just run from the command line the script *test.py* residing in the *scripts/* folder:  
 ```python3 scripts/test.py --trained_model 'model.pt' --sample_img_name '1TJZT39WQ_0_test.npy'```
