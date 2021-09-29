@@ -14,6 +14,7 @@ from torch import max
 from .custom_dataset import CustomDataset
 from .models import MyResNet
 
+
 MODEL_SAVE_PATH = 'final_model.pt'
 
 label_encoding = {
@@ -26,7 +27,7 @@ label_encoding = {
 }
 
 
-def train(epochs, batch_size=32, print_every=1):
+def train(epochs: int, batch_size: int = 32, print_every: int = 1) -> None:
     """
     Implements training of ResNet-18 model for the field state classification problem.
     After training, the best model's weights are saved to the disk.

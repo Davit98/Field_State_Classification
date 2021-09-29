@@ -16,7 +16,7 @@ LABELS_PATH = 'data/final_data.CSV'
 PROCESSED_DATA_PATH = 'processed_data/'
 
 
-def custom_reshape(img, window_size=512, stride=256):
+def custom_reshape(img: np.ndarray, window_size: int = 512, stride: int = 256) -> np.ndarray:
     """
     Pads the input image to accommodate running window of given size and stride.
     Padding is done by adding 0s to the left and bottom parts of the image.
@@ -59,7 +59,7 @@ def custom_reshape(img, window_size=512, stride=256):
     return img_new
 
 
-def split_into_blocks(img, window_size=512, stride=256):
+def split_into_blocks(img: np.ndarray, window_size: int = 512, stride: int = 256) -> np.ndarray:
     """
     Splits the input image into blocks of the given window size.
 
@@ -91,18 +91,18 @@ def split_into_blocks(img, window_size=512, stride=256):
             crop_g_channel = g_channel[i:i + window_size, j:j + window_size]
             crop_b_channel = b_channel[i:i + window_size, j:j + window_size]
 
-            I = np.dstack((crop_r_channel, crop_g_channel, crop_b_channel))
+            img = np.dstack((crop_r_channel, crop_g_channel, crop_b_channel))
 
-            no_0s = (I == 0).sum()
-            count = I.size
+            no_0s = (img == 0).sum()
+            count = img.size
 
             if (no_0s / count) < 0.5:  # filtering out noisy blocks
-                blocks.append(I)
+                blocks.append(img)
 
     return np.array(blocks)
 
 
-def write_blocks_to_disk(window_size=512, stride=256, p=0.2):
+def write_blocks_to_disk(window_size: int = 512, stride: int = 256, p: float = 0.2) -> None:
     """
     Splits raw data into smaller blocks of images and saves as numpy arrays.
     Creates also two csv files containing the paths and labels of train and test images.
@@ -132,7 +132,7 @@ def write_blocks_to_disk(window_size=512, stride=256, p=0.2):
         img_b = rasterio.open(os.path.join(folder, 'reflectance_blue-blue.tif'))  # blue channel
 
         boundary = boundary['geometry'].to_crs(
-            img_r.crs)  # transform geometries to the image's coordinate reference system.
+            img_r.crs)  # transform geometries to the image's coordinate reference system
 
         img_r, _ = mask(img_r, boundary, crop=True)
         img_g, _ = mask(img_g, boundary, crop=True)

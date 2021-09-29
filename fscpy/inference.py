@@ -21,32 +21,37 @@ label_encoding_reverse = {
 }
 
 
-def predict(TRAINED_MODEL, SAMPLE_IMG_NAME):
+def predict(trained_model: str, sample_img_name: str) -> str:
     """
     Use already trained model to make prediction for a single sample.
 
     Parameters
     ----------
-    TRAINED_MODEL : str
+    trained_model : str
         Path of .pt file for ResNet-18 model.
 
-    SAMPLE_IMG_NAME : str
+    sample_img_name : str
         Name of a test image (e.g. 3KR1212BR_48_test.npy).
+
+    Returns
+    -------
+    Predicted label.
     """
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     net = MyResNet()
     net.to(device)
 
     if torch.cuda.is_available():
-        net.load_state_dict(torch.load(TRAINED_MODEL))
+        net.load_state_dict(torch.load(trained_model))
     else:
-        net.load_state_dict(torch.load(TRAINED_MODEL, map_location=torch.device('cpu')))
+        net.load_state_dict(torch.load(trained_model, map_location=torch.device('cpu')))
     net.eval()
 
-    sample = np.load(os.path.join(PROCESSED_DATA_PATH, SAMPLE_IMG_NAME))
+    sample = np.load(os.path.join(PROCESSED_DATA_PATH, sample_img_name))
     sample = torch.from_numpy(sample).float().permute(2, 0, 1).unsqueeze(0)
     sample = sample.to(device)
 
     _, predicted = max(F.softmax(net(sample), dim=1).data, 1)
+    pred_label = label_encoding_reverse[predicted.item()]
 
-    print('Predicted label = {}'.format(label_encoding_reverse[predicted.item()]))
+    return pred_label

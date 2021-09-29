@@ -1,5 +1,8 @@
 from setuptools import setup
 
+with open("requirements.txt", "r", encoding="utf-8") as f:
+    requirements = f.read().splitlines()
+
 setup(
 	name='fscpy',
 	version='0.1.0',    
@@ -9,13 +12,5 @@ setup(
 	author_email='dvmartirosyan@gmail.com',
 	license='BSD 2-clause',
 	packages=['fscpy'],
-	install_requires=[
-	'numpy==1.20.1',
-	'pandas==1.2.4',
-	'tqdm==4.59.0',
-	'geopandas==0.9.0',
-	'rasterio==1.2.8',
-	'torchvision==0.7.0',
-	'torch==1.6.0'
-	]
+	install_requires=requirements
 )
